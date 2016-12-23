@@ -12,14 +12,14 @@
 	$count = mysql_num_rows($result);
 	if($count == 1){
 	while($row =  mysql_fetch_array($result)){
-		echo "Xin chào $row[3] <a href='index.php'>logout</a>";
+		echo "Xin chào $row[3] <a href='account.php'>logout</a>";
 		}
 	}
 	else{
 		$_SESSION["username"] = $user;
 		$_SESSION["password"] = $pass;
 		$_SESSION["loginstatus"] = " Login fail ";
-		header("location: account.php");
+		header("location:account.php");
 		}
 	
 ?>

@@ -1,43 +1,23 @@
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<?php 
-session_start();
-if (isset($_GET['themgiohang'])){
-	$id = $_GET['themgiohang'];
-	
-	if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])){
-		$count = count($_SESSION['giohang']);
-		$flag = false;
-		for($i = 0 ; $i < $count; $i++){
-			if($_SESSION['giohang'][$i]["id"] == $id) {
-				$_SESSION['giohang'][$i]["soluong"] +=1;
-				$flag = true;
-				break;	 	
-			}
-		}
-		if ($flag == false){
-			
-			$_SESSION['giohang'][$count]["id"] = $id;
-			$_SESSION['giohang'][$count]["soluong"] = 1;
-			}
-	}
-	else {
-		$_SESSION['giohang'] = array();
-		$_SESSION['giohang'][0]["id"] = $id;
-		$_SESSION['giohang'][0]["soluong"] = 1;
-	}
-	header ("Locahost:index.php");
-}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quan li san pham</title>
+<style>
+td {
+	text-align:center}
+</style>
+</head>
 
+<body>
+<?php
+session_start();
+include("ketnoi.php")
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Checkout :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>
@@ -72,15 +52,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body> 
 	<!--top-header-->
-	<div class="top-header" >
-	<div class="container" >
-		<div class="top-header-main" >
+	<div class="top-header">
+	<div class="container">
+		<div class="top-header-main">
 			<div class="col-md-4 top-header-left">
 				<div class="search-bar">
-                <form method="GET">
-					<input type="text" value="Search" name="tukhoa" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+					<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
 					<input type="submit" value="">
-                 </form>
 				</div>
 			</div>
 			<div class="col-md-4 top-header-middle">
@@ -91,28 +69,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="checkout.php">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-							<img src="images/cart-1.png" alt="" />
+							<img src="images/cart-1.png" alt=""/></h3>
 						</a>
-                        <?php
-						 if($_SESSION['giohang']){
-						 echo count($_SESSION['giohang']);
-						 }
-						 else
-						 {
-							  echo 0;
-						 }
-						 ?>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-                      
-                        
 						<div class="clearfix"> </div>
 					</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
+</div>
 <!--top-header-->
-	<!--bottom-header-->
+<!--bottom-header-->
 	<div class="header-bottom">
 		<div class="container">
 			<div class="top-nav">
@@ -230,6 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<li><a href="products.html">Kids</a></li>
 										<li><a href="products.html">Accessories</a></li>
 										<li><a href="products.html">Style Videos</a></li>
+
 									</ul>	
 								</div>
 								<div class="col1 me-one">
@@ -342,147 +311,78 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-    </div>
 	<!--bottom-header-->
-	<!--banner-starts-->
-	<div class="bnr" id="home">
-		<div  id="top" class="callbacks_container">
-			<ul class="rslides" id="slider4">
-			    <li>
-					<div class="banner-1"></div>
-				</li>
-				<li>
-					<div class="banner-2"></div>
-				</li>
-				<li>
-					<div class="banner-3"></div>
-				</li>
-			</ul>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-	<!--banner-ends--> 
-	<!--Slider-Starts-Here-->
-				<script src="js/responsiveslides.min.js"></script>
-			 <script>
-			    // You can also use "$(window).load(function() {"
-			    $(function () {
-			      // Slideshow 4
-			      $("#slider4").responsiveSlides({
-			        auto: true,
-			        pager: true,
-			        nav: false,
-			        speed: 500,
-			        namespace: "callbacks",
-			        before: function () {
-			          $('.events').append("<li>before event fired.</li>");
-			        },
-			        after: function () {
-			          $('.events').append("<li>after event fired.</li>");
-			        }
-			      });
-			
-			    });
-			  </script>
-			<!--End-slider-script-->
-	<!--start-banner-bottom--> 
-	<div class="banner-bottom">
+	<!--start-breadcrumbs-->
+	<div class="breadcrumbs">
 		<div class="container">
-			<div class="banner-bottom-top">
-				<div class="col-md-6 banner-bottom-left">
-					<div class="bnr-one">
-						<div class="bnr-left">
-							<h1><a href="single.html">Duis dictum volutpat</a></h1>
-							<p>Nulla tempus facilisis purus at.</p>
-							<div class="b-btn"> 
-								<a href="single.html">SHOP NOW</a>
-							</div>
-						</div>
-						<div class="bnr-right"> 
-							<a href="single.html"><img src="images/b-1.jpg" alt="" /></a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-6 banner-bottom-right">
-					<div class="bnr-two">
-						<div class="bnr-left">
-							<h2><a href="single.html">Phasellus quis nunc</a></h2>
-							<p>Nulla tempus facilisis purus at.</p>
-							<div class="b-btn"> 
-								<a href="single.html">SHOP NOW</a>
-							</div>
-						</div>
-						<div class="bnr-right"> 
-							<a href="single.html"><img src="images/b-2.jpg" alt="" /></a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
+			<div class="breadcrumbs-main">
+				
 			</div>
 		</div>
 	</div>
+	<!--end-breadcrumbs-->
+	<!--start-ckeckout-->
+	<div class="ckeckout">
+		<div class="container">
+			<div class="ckeckout-top">
+			<div class=" cart-items heading">
+			 <h3 style="font:Georgia">Quản lí sản phẩm</h3>
+<?php
+if(isset($_GET['ac'])){
+	$tam = $_GET['ac'];
+	}
+else{
+	$tam = '';
+ 	}
+if($tam == 'sua'){
+		include('sua.php');
+}
+if($tam == 'them'){
+		include('them.php');
+		}
+	
+?>             
+<?php
+	$sql = "select * from product order by ID desc";
+	$run = mysql_query($sql);
+?>        
+<table  width="80%" border="1">
+  <tr align="center">
+    <td width="16">ID</td>
+    <td width="85">ProductName</td>
+    <td width="31">Price</td>
+    <td width="56">Category</td>
+    <td width="83">ImageUrl</td>
+    <td colspan="3">Quản Lý</td>
+    </tr>
     <?php
-	include ("ketnoi.php");
-	$size = 8;
-	if(isset($_GET['tukhoa'])){
-		$result = mysql_query("select count(*) from product where ProductName like '%{$_GET['tukhoa']}%' ", $connect);
-	}
-	else {
-	$result = mysql_query("select count(*) from product",$connect);
-	}
-	$row = mysql_fetch_array($result);
-	$tongsosanpham = $row[0];
-	$tongsotrang = ($tongsosanpham / $size) + 1;
-	 ?>
-	<!--end-banner-bottom--> 
-	<!--start-shoes--> 
-  
-    
-	<?php include("products-list.php");?> 
-   
-   
-    </div>
-    
-    <?php echo $tongsosanpham; ?>
-    <div style="text-align:center; font-size:25px"><?php
-	for($i = 1; $i<=$tongsotrang;$i++){
-    echo "<b><a href=\"?trang=$i\">$i</a></b>&nbsp &nbsp ";
-	}
+	$i = 0;
+	while($dong = mysql_fetch_array($run)){
 	?>
-    </div>
-	<!--end-shoes-->
-	<!--start-abt-shoe-->
-	<div class="abt-shoe">
-		<div class="container"> 
-			<div class="abt-shoe-main">
-				<div class="col-md-4 abt-shoe-left">
-					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-1.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
-					</div>
-				</div>
-				<div class="col-md-4 abt-shoe-left">
-					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-2.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
-					</div>
-				</div>
-				<div class="col-md-4 abt-shoe-left">
-					<div class="abt-one">
-						<a href="single.html"><img src="images/abt-3.jpg" alt="" /></a>
-						<h4><a href="single.html">Cras dolor ligula</a></h4>
-						<p>Phasellus auctor vulputate egestas. Nulla facilisi. Cras dolor ligula, pharetra vitae efficitur ac, tempus vitae nisl. Aliquam erat volutpat. </p>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+  <tr>
+    <td><?php echo $i ?></td>
+    <td><?php echo $dong['ProductName'] ?></td>
+    <td><?php echo $dong['Price'] ?></td>
+    <td><?php echo $dong['Category'] ?></td>
+    <td><img style="width:100px; height:100px" src="images/<?php echo $dong['ImageUrl'] ?>"></td>
+    <td width="83"><a href="quanlisp.php?ac=them&id=<?php echo $dong['ID'] ?>">Thêm</a></a></td>
+    <td width="83"><a href="quanlisp.php?ac=sua&id=<?php echo $dong['ID'] ?>">Sửa</a></a></td>
+    <td width="83"><a href="xuly.php?id=<?php echo $dong['ID'] ?>"</a>Xóa</td>
+    <?php
+	$i++;
+   }
+   ?>
+  </tr>
+</table>
+
+
+            </div> 
+			</div>  
+		 </div>
 		</div>
 	</div>
-	<!--end-abt-shoe-->
+    
+	<!--end-ckeckout-->
 	<!--start-footer-->
 	<div class="footer">
 		<div class="container">
@@ -560,5 +460,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	</div>
 	<!--end-footer-text-->	
+</body>
+</html>
 </body>
 </html>

@@ -6,8 +6,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?php
 	include("Ketnoi.php");
-	$id = $_GET["id"];
-	$result = mysql_query("select * from product where id = ".$id,$connect);
+	$id = $_GET['id'];
+	$result = mysql_query("select * from product where ID = '$id' ",$connect);
 	$row = mysql_fetch_array($result);
 ?>
 <!DOCTYPE html>
@@ -328,17 +328,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-5 single-top-left">	
 						<div class="flexslider">
 							<ul class="slides">
-								<li data-thumb="<?php echo $row["ImageUrl"]?>">
-									<img src="<?php echo $row["ImageUrl"]?>" />
+								<li data-thumb="images/<?php echo $row["ImageUrl"]?>">
+									<img src="images/<?php echo $row["ImageUrl"]?>" />
 								</li>
-								<li data-thumb="<?php echo $row["ImageUrl"]?>">
-									<img src="<?php echo $row["ImageUrl"]?>" />
+								<li data-thumb="images/<?php echo $row["ImageUrl"]?>">
+									<img src="images/<?php echo $row["ImageUrl"]?>" />
 								</li>
-								<li data-thumb="<?php echo $row["ImageUrl"]?>">
-									<img src="<?php echo $row["ImageUrl"]?>" />
+								<li data-thumb="images/<?php echo $row["ImageUrl"]?>">
+									<img src="images/<?php echo $row["ImageUrl"]?>" />
 								</li>
-								<li data-thumb="<?php echo $row["ImageUrl"]?>">
-									<img src="<?php echo $row["ImageUrl"]?>" />
+								<li data-thumb="images/<?php echo $row["ImageUrl"]?>">
+									<img src="images/<?php echo $row["ImageUrl"]?>" />
 								</li>
 							</ul>
 						</div>

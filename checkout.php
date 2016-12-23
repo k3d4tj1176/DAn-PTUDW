@@ -371,7 +371,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              
 					<div class="close1"> </div>
                       
-						<li class="ring-in"><a href="single.php" ><img src="<?php echo $row['ImageUrl'] ?>" class="img-responsive" style="width:100px; height:100px;" alt=""></a>
+						<li class="ring-in"><a href="single.php" ><img src="images/<?php echo $row['ImageUrl'] ?>" class="img-responsive" style="width:100px; height:100px;" alt=""></a>
 						</li>
 						<li><span><?php echo $row['ProductName'] ?></span></li>
 						<li><span><?php echo $row['Price'] ?></span></li>

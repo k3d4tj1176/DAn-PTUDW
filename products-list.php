@@ -21,7 +21,7 @@
 				<div class="col-md-3 product-left"> 
 					<div class="p-one simpleCart_shelfItem">							
 							<a href="single.php?id=<?php echo $row["ID"] ?>">
-								<img src="<?php echo $row["ImageUrl"]?>" alt="" />
+								<img src="images/<?php echo $row["ImageUrl"]?>" alt="" />
                             </a>
 							<a href="?themgiohang=<?php echo $row["ID"]; ?>" class="mask">
 									<span>Add to cart</span>
